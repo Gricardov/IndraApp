@@ -1,0 +1,121 @@
+@import "./index.scss";
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /** 1rem = 10px **/
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Lato", "Roboto" sans-serif;
+  font-size: $standard-paragraph-size;
+  font-weight: $standard-paragraph-weight;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  color: $bright;
+}
+
+h1 {
+  font-size: $h1-desktop;
+}
+
+h2 {
+  font-size: $h2-desktop;
+}
+
+h3 {
+  font-size: $h3-desktop;
+  line-height: 1.3;
+}
+
+h4 {
+  font-size: $h4-desktop;
+}
+
+a {
+  text-decoration: none;
+  color: $bright;
+  transition: all 200ms ease-in-out;
+}
+
+a:hover {
+  color: $tint;
+}
+
+input:not([type="submit"]) {
+  padding: 20px;
+  background-color: $secondary;
+  border: none;
+  outline: none;
+  font-size: 2rem;
+  font-weight: 500;
+  color: $bright;
+}
+
+// Utilidades
+.container {
+  max-width: 1200px;
+  width: 82.2%;
+  margin: 0 auto;
+  @media (min-width: 991px) {
+    width: 85%;
+  }
+}
+
+.section {
+  padding-bottom: 80px;
+}
+
+.below-navbar {
+  margin-top: $top-navbar-height;
+}
+
+.above-footer {
+  margin-bottom: $footer-height;
+}
+
+.clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: unset !important;
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+
+.clamp-1 {
+  -webkit-line-clamp: 1;
+}
+
+.clamp-2 {
+  -webkit-line-clamp: 2;
+}
+
+.clamp-3 {
+  -webkit-line-clamp: 3;
+}
+
+.no-break {
+  overflow-wrap: unset;
+  word-break: keep-all;
+}

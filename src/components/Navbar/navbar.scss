@@ -1,0 +1,32 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    width: 100%;
+    height: $top-navbar-height;
+    background-color: transparent;
+    &__content {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__logo {
+        width: 92px;
+    }
+    &__contact {
+        &-logo {
+            width: 15.6px;
+            margin-right: 8.8px;
+        }
+        &-text {
+            font-family: "Roboto";
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: #6769ff;
+        }
+    }
+    &__contact-logo {
+    }
+    &__contact-text {
+    }
+}
