@@ -120,18 +120,18 @@ function validationSchema() {
         terms: Yup.bool().oneOf([true], 'Debes aceptar los términos y condiciones'),
         doctype: Yup.string().required(),
         dni: Yup.string()
-            .required()
+            .required('El DNI es requerido')
             .matches(/^[0-9]+$/, "El DNI solo debe estar conformado por dígitos")
             .min(8, 'El DNI debe tener 8 dígitos exactamente')
             .max(8, 'El DNI debe tener 8 dígitos exactamente'),
         celular: Yup.string()
-            .required()
+            .required('El celular es requerido')
             .matches(/^[0-9]+$/, "El celular solo debe estar conformado por dígitos")
             .min(9, 'El celular debe tener 9 dígitos exactamente')
             .max(9, 'El celular debe tener 9 dígitos exactamente'),
         placa: Yup.string()
+            .required('La placa es requerida')
             .min(6, 'La placa debe tener 6 caracteres como mínimo')
             .max(10, 'La placa debe tener 10 caracteres como máximo')
-            .required('La placa es requerida')
     }
 }

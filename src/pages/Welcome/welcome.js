@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react';
 import Navbar from '../../components/Navbar/navbar';
 import Button from '../../components/Button';
+import ProgressBar from '../../components/ProgressBar';
 import { SessionContext } from '../../context/SessionContext';
 import { useFormik } from 'formik';
-import { useHistory } from "react-router-dom";
 import { Form } from 'semantic-ui-react';
 import { numberWithCommas } from '../../utils/helpers';
 import * as Yup from 'yup';
@@ -14,7 +14,7 @@ const maxSum = 16500;
 
 export default function Welcome() {
     const { user } = useContext(SessionContext);
-    const [selectedIndex, setSelectedIndex] = useState(0);
+    const [step, setStep] = useState(0);
 
     const checkErrors = () => {
         Object.keys(formik.errors).map((e, i) => {
@@ -26,7 +26,7 @@ export default function Welcome() {
         initialValues: initialValues(),
         validationSchema: Yup.object(validationSchema()),
         onSubmit: async (formData) => {
-            console.log(formData)
+            console.log(formData);
         }
     })
 
@@ -36,11 +36,11 @@ export default function Welcome() {
             <main className='welcome-main'>
                 <div className='steps-container'>
                     <div className='steps'>
-                        <div className={`step ${selectedIndex == 0 ? 'step-active' : ''}`} onClick={() => setSelectedIndex(0)}>
+                        <div className={`step ${step == 0 ? 'step-active' : ''}`} onClick={() => setStep(0)}>
                             <span className='step__number'>1</span>
                             <span className='step__text'>Datos del auto</span>
                         </div>
-                        <div className={`step ${selectedIndex == 1 ? 'step-active' : ''}`} onClick={() => setSelectedIndex(1)}>
+                        <div className={`step ${step == 1 ? 'step-active' : ''}`} onClick={() => setStep(1)}>
                             <span className='step__number'>2</span>
                             <span className='step__text'>Arma tu plan</span>
                         </div>
@@ -52,9 +52,7 @@ export default function Welcome() {
                             <img className='bar-content__icon' src='/icon_angle-left-gray.svg' alt='angle-left' />
                         </a>
                         <span className='bar-content__text'>PASO 1 DE 2</span>
-                        <div className='progress-bar'>
-                            <div className='progress-bar__filler' />
-                        </div>
+                        <ProgressBar />
                     </div>
                 </div>
                 <div className='welcome-content'>
