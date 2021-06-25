@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  font-family: "Lato", "Roboto" sans-serif;
+  font-family: "Lato", "Roboto", sans-serif;
   font-size: $standard-paragraph-size;
   font-weight: $standard-paragraph-weight;
   line-height: 1.4;
@@ -32,7 +32,8 @@ h6 {
   margin: 0;
   padding: 0;
   line-height: 1;
-  color: $bright;
+  font-weight: 400;
+  color: $primary;
 }
 
 h1 {
@@ -62,14 +63,163 @@ a:hover {
   color: $tint;
 }
 
-input:not([type="submit"]) {
-  padding: 20px;
-  background-color: $secondary;
-  border: none;
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='red' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: 50%;
+}
+
+input:not([type="submit"]),
+select {
+  border-radius: 4.02778px;
+  border: 1.00694px solid $border;
+  padding-left: 16.11px;
+  padding-right: 16.11px;
+  height: 56px;
   outline: none;
-  font-size: 2rem;
-  font-weight: 500;
-  color: $bright;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: $primary;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+// Checkbox
+.chk-container {
+  display: block;
+  position: relative;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Hide the browser's default checkbox */
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  /* Create a custom checkbox */
+  &__checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 4px;
+  }
+  /* On mouse-over, add a grey background color */
+  &::hover input ~ &__checkmark {
+    background-color: #ccc;
+  }
+  /* When the checkbox is checked, add a blue background */
+  & input:checked ~ &__checkmark {
+    background-color: #43b748;
+  }
+
+  /* Create the checkmark/indicator (hidden when not checked) */
+  &__checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  /* Show the checkmark when checked */
+  & input:checked ~ &__checkmark:after {
+    display: block;
+  }
+
+  /* Style the checkmark/indicator */
+  &__checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+// Radio
+
+.radio-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Hide the browser's default radio button */
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  /* Create a custom radio button */
+  &__checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: $bright;
+    border-radius: 50%;
+    border: 1px solid $green;
+  }
+  /* On mouse-over, add a grey background color */
+  &::hover input ~ &__checkmark {
+    background-color: $bright;
+  }
+  /* When the radio button is checked, add a blue background */
+  & input:checked ~ &__checkmark {
+    background-color: $bright;
+  }
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  &__checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    background-color: $green;
+  }
+  /* Show the indicator (dot/circle) when checked */
+  & input:checked ~ &__checkmark:after {
+    display: block;
+    background-color: $green;
+  }
+
+  /* Style the indicator (dot/circle) */
+  &__checkmark:after {
+    top: 4px;
+    left: 4px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: white;
+  }
 }
 
 // Utilidades

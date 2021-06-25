@@ -5,6 +5,10 @@
 // Layouts
 
 // Pages
+@import "../pages/Home/home.scss";
+@import "../pages/Welcome/welcome.scss";
 
 // Components
 @import "../components/Navbar/navbar.scss";
+@import "../components/Button/button.scss";
+@import "../components/ProgressBar/progress-bar.scss";
